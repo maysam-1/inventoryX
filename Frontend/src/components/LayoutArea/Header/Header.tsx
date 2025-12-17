@@ -1,104 +1,26 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import React from 'react';
+import logo from '../../../assets/justbox.png';
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
-    <header className="bg-[#2C2654] border-b-4 border-[#D4A54A]">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <img 
-              src="https://i.imgur.com/your-logo.png" 
-              alt="InventoryX" 
-              className="h-12 w-auto"
-            />
-            <span className="text-[#F8ECC2] text-3xl font-bold tracking-wide" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
-              INVENTORYX
-            </span>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
-            <a 
-              href="#dashboard" 
-              className="text-[#F8ECC2] hover:text-[#D4A54A] font-semibold text-lg transition-colors"
-              style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-            >
-              Dashboard
-            </a>
-            <a 
-              href="#inventory" 
-              className="text-[#F8ECC2] hover:text-[#D4A54A] font-semibold text-lg transition-colors"
-              style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-            >
-              Inventory
-            </a>
-            <a 
-              href="#reports" 
-              className="text-[#F8ECC2] hover:text-[#D4A54A] font-semibold text-lg transition-colors"
-              style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-            >
-              Reports
-            </a>
-            <a 
-              href="#settings" 
-              className="text-[#F8ECC2] hover:text-[#D4A54A] font-semibold text-lg transition-colors"
-              style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-            >
-              Settings
-            </a>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-[#F8ECC2] hover:text-[#D4A54A] p-2"
-            >
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+    <header className="bg-gradient-to-r from-[#E8D5C4] via-[#F5E6D8] to-[#E8D5C4] shadow-lg border-b-4 border-[#D4A894]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
+        <div className="flex items-center gap-4">
+          <img 
+            src={logo} 
+            alt="InventoryX Logo" 
+            className="h-20 w-auto drop-shadow-lg transform hover:scale-105 transition-transform duration-300"
+          />
+          <div className="flex flex-col">
+            <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#C9A68C] via-[#B4907A] to-[#C9A68C]">
+              InventoryX
+            </h1>
+            <p className="text-[#A88968] text-sm font-medium">
+              Treasure Your Inventory
+            </p>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden pb-4">
-            <div className="flex flex-col space-y-3">
-              <a 
-                href="#dashboard" 
-                className="text-[#F8ECC2] hover:text-[#D4A54A] font-semibold text-lg py-2 transition-colors"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-              >
-                Dashboard
-              </a>
-              <a 
-                href="#inventory" 
-                className="text-[#F8ECC2] hover:text-[#D4A54A] font-semibold text-lg py-2 transition-colors"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-              >
-                Inventory
-              </a>
-              <a 
-                href="#reports" 
-                className="text-[#F8ECC2] hover:text-[#D4A54A] font-semibold text-lg py-2 transition-colors"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-              >
-                Reports
-              </a>
-              <a 
-                href="#settings" 
-                className="text-[#F8ECC2] hover:text-[#D4A54A] font-semibold text-lg py-2 transition-colors"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-              >
-                Settings
-              </a>
-            </div>
-          </div>
-        )}
-      </nav>
+      </div>
     </header>
   );
 }
