@@ -1,0 +1,6 @@
+# ===== Backend (Python / FastAPI) =====
+Backend/venv/
+__pycache__/
+*.pyc
+.env
+Backend/.env
