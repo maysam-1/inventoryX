@@ -2,9 +2,11 @@ from fastapi import FastAPI
 from sqlalchemy import text
 from app.utils.database import engine
 from app.routes.auth_routes import router as auth_router
+from app.routes.admin_routes import router as admin_router
 
 app = FastAPI(title="Backend API")
 app.include_router(auth_router)
+app.include_router(admin_router) 
 
 @app.get("/health")
 def health_check():

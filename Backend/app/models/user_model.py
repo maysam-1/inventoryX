@@ -1,6 +1,7 @@
 import uuid
 from sqlalchemy import Column, String
 from sqlalchemy.dialects.postgresql import UUID, ENUM
+from sqlalchemy.orm import relationship
 from app.utils.database import Base
 
 
@@ -19,10 +20,8 @@ class User(Base):
         primary_key=True,
         default=uuid.uuid4
     )
-
     username = Column(String, nullable=False)
     email = Column(String, unique=True, nullable=False)
-
     role = Column(
         ENUM(
             UserRole,
@@ -34,3 +33,5 @@ class User(Base):
     )
     password = Column(String, nullable=False)  
 
+
+    audit_logs = relationship("AuditLog", back_populates="user")
