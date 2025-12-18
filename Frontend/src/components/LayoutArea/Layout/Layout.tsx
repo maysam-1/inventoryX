@@ -1,13 +1,11 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import Header from '../Header/Header';
 import { TrendingUp, Package, Users, AlertCircle, Plus, FileText, Settings } from 'lucide-react';
 
 export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#FFF5F0] via-[#FFFBF7] to-[#FFF0EB]">
-      <Header />
-      
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Routes>
           <Route path="/" element={
