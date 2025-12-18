@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import Header from '../Header/Header';
 import { TrendingUp, Package, Users, AlertCircle, Plus, FileText, Settings } from 'lucide-react';
 
 export default function Layout() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false); 
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#FFF5F0] via-[#FFFBF7] to-[#FFF0EB]">
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                  <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+    <Outlet/>
+
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-0">
         <Routes>
           <Route path="/" element={
             <div className="space-y-8">
-              {/* Welcome Card */}
               <div className="bg-gradient-to-br from-white to-[#FFF5F0] rounded-2xl shadow-xl p-8 border-2 border-[#E8CDB8]/40 backdrop-blur-sm">
                 <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#C9A68C] to-[#B4907A] mb-3">
                   Welcome to InventoryX
@@ -72,14 +76,7 @@ export default function Layout() {
         </Routes>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gradient-to-r from-[#E8D5C4] via-[#F5E6D8] to-[#E8D5C4] border-t-4 border-[#D4A894] mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <p className="text-center text-[#A88968] text-sm font-semibold tracking-wide">
-            © 2024 InventoryX. All rights reserved.
-          </p>
-        </div>
-      </footer>
+     
     </div>
   );
 }
